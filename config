@@ -1,7 +1,7 @@
-# config file used for the GNUmakefile only
+# config file for GNUmake
 
-# define to 0 to not build shared library
-USE_SHARED ?= 1
+# define to 1 to install shared library
+USE_SHARED ?= 0
 
 # define to 1 to use Altivec instructions
 USE_ALTIVEC ?= 0
@@ -20,5 +20,12 @@ ifeq ($(USE_SSE),1)
    CXXFLAGS += -msse
 endif
 
+# install options
+INSTALL = install
+INSTALL_FILE      = $(INSTALL) -p -o root -g root     -m 644
+INSTALL_PROGRAM   = $(INSTALL) -p -o root -g root     -m 755
+INSTALL_DIRECTORY = $(INSTALL) -d -p -o root -g root  -m 755
+
 # where should we install to
 INSTALL_DIR ?= /usr/local
+LIB_PATH ?= lib
