@@ -1,6 +1,6 @@
 include config
 
-VER = 1.14
+VER = 1.15
 SOVER = 0
 
 SRC = alpha.cpp clusterfit.cpp colourblock.cpp colourfit.cpp colourset.cpp maths.cpp rangefit.cpp singlecolourfit.cpp squish.cpp
@@ -55,7 +55,7 @@ libsquish.pc: libsquish.pc.in
 	@sed 's|@PREFIX@|$(PREFIX)|;s|@LIB_PATH@|$(LIB_PATH)|' $@.in > $@
 
 tgz: clean
-	tar zcf libsquish-$(VER).tgz $(SRC) $(HDR) Makefile config CMakeLists.txt CMakeModules libSquish.* README LICENSE ChangeLog Doxyfile libsquish.pc.in extra --exclude \*.svn\*
+	tar zcf libsquish-$(VER).tgz $(SRC) $(HDR) Makefile config CMakeLists.txt CMakeModules libSquish.* README.txt LICENSE.txt ChangeLog.txt Doxyfile libsquish.pc.in extra --exclude \*.svn\*
 
 %.o: %.cpp
 	$(CXX) $(CPPFLAGS) -I. $(CXXFLAGS) -o $@ -c $<
